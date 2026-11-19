@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-bg text-tx font-sans text-sm; color-scheme: dark; }
+  h1, h2, h3 { @apply font-head font-extrabold tracking-tight; }
+  :focus-visible { outline: 2px solid #65B9AA; outline-offset: 2px; }
+  svg text { fill: #8497a1; font-size: 11px; }
+  input[type="range"] { accent-color: #65B9AA; }
+}
+@layer components {
+  .btn { @apply bg-acc text-[#04201b] rounded-lg px-4 py-2.5 font-bold cursor-pointer transition hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed; }
+  .btn-sec { @apply bg-transparent text-tx border border-line hover:bg-card; }
+  .card { @apply bg-card border border-line rounded-xl p-4; }
+  .input { @apply w-full bg-[#0a1115] border border-line rounded-lg px-3 py-2.5; }
+  .note { @apply border-l-[3px] border-warn bg-[#0a1115] rounded px-3 py-2 text-[13px]; }
+  .chip { @apply inline-block border border-line rounded-full px-2.5 py-0.5 text-xs text-mute mr-1; }
+}
