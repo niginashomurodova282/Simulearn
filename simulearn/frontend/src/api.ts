@@ -1,5 +1,8 @@
 import type { Analysis, Experiment, ModelMeta, Params, RunOut, User } from "./types";
 
+// Railway'dagi backend manzili
+const API_BASE_URL = "https://simulearn-production-63645f7a.up.railway.app";
+
 let token = localStorage.getItem("sl_token") || "";
 export const hasToken = () => !!token;
 export const setToken = (t: string) => {
@@ -8,9 +11,12 @@ export const setToken = (t: string) => {
 };
 
 async function req<T>(path: string, opts: RequestInit = {}): Promise<T> {
-  const r = await fetch("/api" + path, {
+  const r = await fetch(API_BASE_URL + path, {
     ...opts,
-    headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+    headers: { 
+      "Content-Type": "application/json", 
+      ...(token ? { Authorization: `Bearer ${token}` } : {}) 
+    },
   });
   if (!r.ok) {
     let msg = "Xatolik yuz berdi";
